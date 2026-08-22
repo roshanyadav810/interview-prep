@@ -8,20 +8,20 @@
         App receives FD for that socket
     - Java's Tradition way for handling file io is below machanism
         - InputStream - Abstarct claas. provides read method to Read data from file
-        - InputStream
             │
             │ defines byte reading
             ▼
             SOURCE
-            │
             ├── File - FileInputStream - To Read from File
             ├── Memory - ByteArrayInputStream - To Read from Memory like byte[]
             └── Pipe - PipedInputStream - inter thread communication
-            
                     +
-            
             DECORATOR
-            │
             ├── Buffer - BufferedInputStream we can provide a buffer while reading so Application can read buffer size bytes in one go.
             └── Data interpretation - DataInputStream Read in java primitive data type like 
+    - Sokets :
+        - ServerSocket - It ask OS to create a Socket in Listen state with binding to a PORT and address
+        - Socket - This represent an accepted connection by server socket
+            
+        
 
