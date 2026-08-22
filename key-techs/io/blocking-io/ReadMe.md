@@ -22,6 +22,6 @@
             
             DECORATOR
             │
-            ├── Buffer - 
-            └── Data interpretation
+            ├── Buffer - BufferedInputStream we can provide a buffer while reading so Application can read buffer size bytes in one go.
+            └── Data interpretation - DataInputStream Read in java primitive data type like 
 
