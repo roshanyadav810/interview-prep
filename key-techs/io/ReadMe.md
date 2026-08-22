@@ -38,6 +38,7 @@
             memory, cpu and required frequent context switching
     1. Non-Blocking IO -
         - Instead of creating thread on each connection App server creates thread when data is available
+        - This uses EPOLL(linux) / Kqueue(Mac) to know if data is available or not
     
             
 
