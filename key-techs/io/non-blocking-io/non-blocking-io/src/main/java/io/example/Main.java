@@ -42,7 +42,7 @@ public class Main {
             while (true) {
                 // Blocking return only after one channel is available for the io
                 selector.select();
-
+                System.out.println("After select");
                 Iterator<SelectionKey> selectionKeyIterator = selector.selectedKeys().iterator();
 
                 while (selectionKeyIterator.hasNext()){
