@@ -11,9 +11,9 @@ import java.security.SecureRandom;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class LockerManager {
-    private final Map<String , Parcel> lockerParcelMap;
     private final Map<String , String> otpLockerMap;
     private final LockerDB lockerDB;
     private final OtpDB otpDB;
@@ -22,7 +22,6 @@ public class LockerManager {
     public LockerManager(LockerDB lockerDB, OtpDB otpDB) {
         this.lockerDB = lockerDB;
         this.otpDB = otpDB;
-        this.lockerParcelMap = new HashMap<>();
         this.otpLockerMap = new HashMap<>();
         this.secureRandom = new SecureRandom();
     }
@@ -41,8 +40,8 @@ public class LockerManager {
 
         Locker locker = lockerDB.get(lockerId);
         locker.setStatus(Status.OCCUPIED);
+        locker.setParcel(parcel);
 
-        lockerParcelMap.put(lockerId , parcel);
         String otp = String.valueOf(secureRandom.nextInt());
         Otp otp1 = new Otp(otp);
         otpDB.add(otp1);
@@ -60,10 +59,9 @@ public class LockerManager {
         String lockerId = otpLockerMap.get(inputOtp);
 
         System.out.println("lockar id "+lockerId);
-        System.out.println(lockerParcelMap.toString());
-        if(lockerParcelMap.containsKey(lockerId) ){
-
-            return lockerParcelMap.get(lockerId);
+        Locker locker = lockerDB.get(lockerId);
+        if(Objects.nonNull(locker.getParcel()) ){
+            return locker.getParcel();
         }
         throw new RuntimeException("Parcel not found");
     }

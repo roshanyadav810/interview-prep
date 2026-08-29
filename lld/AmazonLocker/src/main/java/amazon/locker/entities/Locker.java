@@ -8,6 +8,7 @@ public class Locker {
     private final String id;
     private final Size size;
     private Status status;
+    private Parcel parcel;
 
     public Locker(String id, Size size , Status status ) {
         this.id = id;
@@ -30,4 +31,14 @@ public class Locker {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public Parcel getParcel() {
+        return this.parcel;
+    }
+
+    public void setParcel(Parcel parcel) {
+        this.parcel = parcel;
+    }
+
+
 }
