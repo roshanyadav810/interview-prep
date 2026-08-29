@@ -9,9 +9,9 @@ import amazon.locker.repository.OtpDB;
 
 import java.security.SecureRandom;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class LockerManager {
     private final Map<String , String> otpLockerMap;
@@ -22,7 +22,7 @@ public class LockerManager {
     public LockerManager(LockerDB lockerDB, OtpDB otpDB) {
         this.lockerDB = lockerDB;
         this.otpDB = otpDB;
-        this.otpLockerMap = new HashMap<>();
+        this.otpLockerMap = new ConcurrentHashMap<>();
         this.secureRandom = new SecureRandom();
     }
 
