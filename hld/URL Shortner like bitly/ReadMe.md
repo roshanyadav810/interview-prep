@@ -40,7 +40,7 @@
 
 ## Basic HLD
     
-    ![basic-hld.png](basic-hld.png)
+    ![Basic HLD](./basic-hld.png)
     
     Steps : 
         1. Client makes a call to url shortner service. it creates a short URL and save this
