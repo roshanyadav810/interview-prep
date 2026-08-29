@@ -18,4 +18,12 @@ public class Parcel {
     public Size getSize() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "Parcel{" +
+                "id='" + id + '\'' +
+                ", size=" + size +
+                '}';
+    }
 }

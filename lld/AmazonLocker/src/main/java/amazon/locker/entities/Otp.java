@@ -1,6 +1,5 @@
 package amazon.locker.entities;
 
-import java.util.Objects;
 
 public class Otp {
     private static final long ExpiryDuration = 180*1000;
@@ -15,8 +14,7 @@ public class Otp {
         return this.otp;
     }
 
-    public boolean isValid(String inputOtp){
-        return Objects.equals(inputOtp, this.otp) && System.currentTimeMillis() < (created + ExpiryDuration);
+    public boolean isExpired(){
+        return System.currentTimeMillis() > this.created + ExpiryDuration;
     }
-
 }
