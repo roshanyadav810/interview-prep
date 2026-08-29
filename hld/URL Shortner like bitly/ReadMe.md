@@ -40,7 +40,7 @@
 
 ## Basic HLD
     
-    ![Basic HLD](./basic-hld.png)
+    ![basic-hld.png](./basic-hld.png)
     
     Steps : 
         1. Client makes a call to url shortner service. it creates a short URL and save this
@@ -53,7 +53,23 @@
         - We can generate a random number between 1-10 billion and encode it to base 62 
             roughly, 7 char short fits 3600 billion url so this fulfills our requirements
             But problem 
-                - lookup in DB to see this Url already exists
+                - lookup in DB to see this Url already exists and collision are quite high
+                    roughly 50% 
+            Soluiton 2- 
+                    -  We can maintain a global Counter in Redis
+                problem - single point failure
+            
+            Solution 3-
+                - Allocate rages to each server like
+                    - 0-1m   - server1
+                    - 1 - 10m - server2
+                - if Server1 dies ids goes waste
+            Soulution 4
+                - Snowflake id
+                - base62(timestamp + serverId + squence number)
+                    
+                
+            
             
     2. Handling 100K write/sec
         - Although, strorage required is roughly - 1 KB per recors * 10 billion - 1 TB
@@ -62,12 +78,16 @@
             - Insert
             - get based on short url
             partition key - shortUrl
-            sort key - time
+            Evenly distribute the traffic
+           
     3. 1 million read/sec
         - We can use a Write through Cache with LFU As traffic from most url will die 
             down in some time
-        - 1 TB Data can easily sit in one redis instance
+        - 1 TB Data can easily sit in one redis instance but we will keep multiple instances 
+            high availability
 
-        
+## HLD
+
+        ![final-hld.png](./final-hld.png)
         
     
