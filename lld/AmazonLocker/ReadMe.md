@@ -27,3 +27,5 @@
         2. get parcel -  user wil give otp
             - find otp based on locker
             - get parcel from locker
+
+
