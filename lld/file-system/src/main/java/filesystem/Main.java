@@ -13,6 +13,14 @@ public class Main {
 
         fs.list("home");
 
+        fs.list("/");
+
+        fs.deleteFile("/","hm.txt");
+
+        fs.list("/");
+
+
+
 
 
     }

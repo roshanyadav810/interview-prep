@@ -12,6 +12,8 @@ public class FileSystem {
 
     public Folder traverse(String path){
 
+        System.out.println("path : "+path);
+
         String[] keys = path.split("/");
         System.out.println("keys len : "+keys.length);
         Folder current = this.root;

@@ -8,12 +8,10 @@
         - root Folder
         
         - createFolder(String path , name)
-        - deleteFolder(String path)
+        - deleteFolder(String path , name)
         - createFile(String path , name)
-        - deleteFile(String path )
+        - deleteFile(String path , name )
         - getContent(String path)
-        - move(String source , String destination)
-        - rename(String path , String oldName , String newName)
         }
     
 
